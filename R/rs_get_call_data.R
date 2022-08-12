@@ -69,8 +69,8 @@ rs_get_call_data <- function(
 
   data <- request('https://api.ringostat.net/calls/list') %>%
           req_url_query(
-            from = date_from,
-            to = date_to,
+            from = as.Date(date_from),
+            to = as.Date(date_to) + 1,
             fields = fields,
             filters = filters,
             merge = merge,
